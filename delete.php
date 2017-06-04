@@ -15,7 +15,7 @@ if (!empty($_POST["password"])) {
     header("Location: //153.126.193.128/Boarding/entry.php?id={$_POST['thread_id']}");
   }
 }
-//数字しかパスワード違いますがでない
+
 ?>
 <?php
 $del = $_POST['del'];

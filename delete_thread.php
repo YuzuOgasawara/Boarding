@@ -17,7 +17,6 @@ if (!empty($_POST["password"])) {
 }
 ?>
 <?php
-//$id = $_POST['upd'];
 $del = $_POST['del'];
 $result = $mysqli->query("select * from `threads` where id = {$del}");
 foreach ($result as $row){
