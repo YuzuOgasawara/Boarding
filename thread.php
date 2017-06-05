@@ -21,12 +21,12 @@ $result = $mysqli->query('select * from `threads` order by `id` desc');
 
 <html>
   <head>
-    <title> スレッド一覧　</title>
+    <title> スレッド一覧</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style_thread.css">
   </head>
-  <h1>スレッド投稿</h1>
   <body>
+    <h1>スレッド投稿</h1>
     <table class="type02">
       <thead>
         <tr>
@@ -48,33 +48,33 @@ $result = $mysqli->query('select * from `threads` order by `id` desc');
     <table class="type01">
       <thead>
         <tr>
-        <th scope="cols">タイトル</th>
-        <th scope="cols">時間</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      <?php foreach ($result as $row){ ?>
-      <tr>
-        <td>
-          <div align="left">
-            <a href="entry.php?id=<?php echo $row['id']; ?>">
-              <?php print(htmlspecialchars($row['name'])); ?>
-            </a>
-          </div>
-        </td>
-        <td><?php print(htmlspecialchars($row['timestamp'])); ?></td>
-        <td>
-          <div class="button_wrapper">
-            <form action="delete_thread.php" method="post">
-              <input type="hidden" name="del" value="<?php echo $row['id']; ?>" />
-              <button class="button2" type="submit">削除</button>
-            </form>
-          </div>
-        </td>
-      </tr>
-      <?php } ?>
-    </tbody>
+          <th scope="cols">タイトル</th>
+          <th scope="cols">時間</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php foreach ($result as $row){ ?>
+          <tr>
+            <td>
+              <div align="left">
+                <a href="entry.php?id=<?php echo $row['id']; ?>">
+                  <?php print(htmlspecialchars($row['name'])); ?>
+                </a>
+              </div>
+            </td>
+            <td><?php print(htmlspecialchars($row['timestamp'])); ?></td>
+            <td>
+              <div class="button_wrapper">
+                <form action="delete_thread.php" method="post">
+                  <input type="hidden" name="del" value="<?php echo $row['id']; ?>" />
+                  <button class="button2" type="submit">削除</button>
+                </form>
+              </div>
+            </td>
+          </tr>
+        <?php } ?>
+      </tbody>
     </table>
   </body>
 </html>

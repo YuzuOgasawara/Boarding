@@ -13,7 +13,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $id = $_POST['thread_id'];
     $mysqli->query("insert into `messages` (`name`,`body`,`password`,`thread_id`) values ('$name', '$message', '$password',$id)");
     $result_message = 'データベースに登録しました！XD';
-
   } else {
     $result_message = 'メッセージを入力してください...XO';
   }
@@ -33,12 +32,12 @@ foreach ($result2 as $row){
 
 <html>
   <head>
-    <title> 掲示板　</title>
+    <title>掲示板</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style_entry.css">
   </head>
-  <h1><?php echo $thread_name; ?></h1>
   <body>
+    <h1><?php echo $thread_name; ?></h1>
     <table class="type02">
       <thead>
         <tr>
@@ -86,7 +85,7 @@ foreach ($result2 as $row){
           </td>
           <td>
             <form action="update.php?id=<?php echo $_GET['id']; ?>" method="post">
-              <input type="hidden" name="upd" value="<?php echo $row['id']; ?>" />
+              <input type="hidden" name="user_id" value="<?php echo $row['id']; ?>" />
               <button class="button1" type="submit">編集</button>
             </form>
           </td>

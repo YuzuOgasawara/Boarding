@@ -11,28 +11,26 @@ if (!empty($_POST["password"])) {
     $result_message = 'パスワードが違います';
   }else{
     $result_message = '削除しました:)';
-
     header("Location: //153.126.193.128/Boarding/entry.php?id={$_POST['thread_id']}");
   }
 }
-
 ?>
 <?php
 $del = $_POST['del'];
 $result = $mysqli->query("select * from `messages` where id = {$del}");
 foreach ($result as $row){
-  $delete = htmlspecialchars($row['name']);
+  $delete = htmlspecialchars($row['body']);
 }
 ?>
 
 <html>
   <head>
-    <title> 削除画面　</title>
+    <title>削除画面</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style_entry.css">
   </head>
-  <h1>削除画面</h1>
   <body>
+    <h1>削除画面</h1>
     <p1>以下のコメントを削除しますか？</p1>
     <p><span class="demo5"><?php echo $delete; ?></span></p>
     <form action="delete.php?id=<?php echo $_GET['id']; ?>" method="post">

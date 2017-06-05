@@ -11,7 +11,6 @@ if (!empty($_POST["password"])) {
     $result_message = 'パスワードが違います';
   }else{
     $result_message = '削除しました:)';
-
     header("Location: //153.126.193.128/Boarding/thread.php");
   }
 }
@@ -26,14 +25,12 @@ foreach ($result as $row){
 
 <html>
   <head>
-    <title> 削除画面　</title>
+    <title>削除画面</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style_entry.css">
   </head>
-
-  <h1>スレッド削除画面</h1>
-
   <body>
+    <h1>スレッド削除画面</h1>
     <p1>以下のタイトルを削除しますか？</p1>
     <p><span class="demo5"><?php echo $delete; ?></span></p>
     <form action="delete_thread.php" method="post">
